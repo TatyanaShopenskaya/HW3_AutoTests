@@ -15,3 +15,19 @@ x
 Hsrc/main/java/org/example/seminar/accuweather/weather/DailyForecast.java,d\b\db3164c59a9696acc5a2c810878fcf94c8c6363f
 c
 3src/test/java/accuweather/ForecastHomeWorkTest.java,f\d\fd51ce9e662e85155f43633f3143a120d9807efd
+=
+src/README.md,8\3\83aa3445a7f65c488e8ccd0a5ad0e80c174dc329
+P
+ allure-results/allure.properties,7\8\78fe07fafe484d2d358882083b2382279eec98b7
+p
+@src/main/java/org/max/seminar/accuweather/location/Location.java,c\a\caa0a8d57672b14e48395dc4f8522387f876983c
+Y
+).github/workflows/github-actions-demo.yml,a\7\a7cc12f4d312f0812295618ffb44472da01b2cd0
+T
+$.github/workflows/run-junit-test.yml,a\b\ab58e25fa0bb5d2487c493fb5a2600c533d4a91b
+r
+Ballure-results/27a0cfa8-08cf-4466-9392-35b71d5b90bb-container.json,5\9\5968adcaf904157bfb466d9a48713f5efb007b68
+r
+Ballure-results/25a0761c-97c0-44a8-8984-5f1db74533e4-container.json,d\f\df144679adbf9bf7429cca961747f72f9c8b25e6
+r
+Ballure-results/8cd33094-745a-4495-85eb-779bbe6c2a63-container.json,d\7\d7663e4af05fd7232d83cb67632d5bcffb188eb7

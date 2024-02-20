@@ -1,31 +1,20 @@
 package accuweather;
+import org.max.seminar.accuweather.weather.Weather;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
-class ForecastHomeWorkTest {
+import static org.hamcrest.Matchers.lessThan;
 
-    public class ForecastsTest extends AccuweatherAbstractTest {
-
-
+public class ForecastHomeWorkTest extends AccuweatherAbstractTest{
         @Test
         void forecast1DayTest() {
-            String code = given().queryParam("apikey", getApiKey()).pathParam("locationKey", 50)
-                    .when()
-                    .get(getBaseUrl() + "/forecasts/v1/daily/1day/{locationKey}")
-                    .then().statusCode(200).extract()
-                    .jsonPath()
-                    .getString("Code");
-
-            String message = given().queryParam("apikey", getApiKey()).pathParam("locationKey", 50)
-                    .when()
-                    .get(getBaseUrl() + "/forecasts/v1/daily/1day/{locationKey}")
-                    .then().statusCode(200).extract()
-                    .jsonPath()
-                    .getString("Message");
-
-            Assertions.assertAll(() -> Assertions.assertEquals("200", code),
-                    () -> Assertions.assertEquals("200", message));
+            Weather weather = given().queryParam("apikey", getApiKey()).pathParam("locationKey", 50)
+                    .when().get(getBaseUrl() + "/forecasts/v1/daily/1day/{locationKey}")
+                    .then().statusCode(200).time(lessThan(2000L))
+                    .extract().response().body().as(Weather.class);
+            Assertions.assertEquals(1,weather.getDailyForecasts().size());
+            System.out.println(weather);
 
         }
         @Test
@@ -70,6 +59,5 @@ class ForecastHomeWorkTest {
                     () -> Assertions.assertEquals("Api Authorization failed", message));
 
         }
-
     }
-}
+

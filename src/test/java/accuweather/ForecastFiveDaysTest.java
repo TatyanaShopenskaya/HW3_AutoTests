@@ -1,8 +1,8 @@
 package accuweather;
 
 import io.restassured.http.Method;
-import org.example.seminar.accuweather.location.Location;
-import org.example.seminar.accuweather.weather.Weather;
+import org.max.seminar.accuweather.location.Location;
+import org.max.seminar.accuweather.weather.Weather;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -19,10 +19,10 @@ public class ForecastFiveDaysTest extends AccuweatherAbstractTest {
     void getResponseTest(){
 
         Weather weather = given().queryParam("apikey", getApiKey()).pathParam("locationKey", 50)
-                .when().get(getBaseUrl() + "/forecasts/v1/daily/1day/{locationKey}")
+                .when().get(getBaseUrl() + "/forecasts/v1/daily/5day/{locationKey}")
                 .then().statusCode(200).time(lessThan(2000L))
                 .extract().response().body().as(Weather.class);
-        Assertions.assertEquals(1,weather.getDailyForecasts().size());
+        Assertions.assertEquals(5,weather.getDailyForecasts().size());
         System.out.println(weather);
     }
 
